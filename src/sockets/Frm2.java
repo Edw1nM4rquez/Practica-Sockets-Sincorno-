@@ -19,7 +19,7 @@ public class Frm2 extends javax.swing.JFrame implements Observer{
      */
     public Frm2() {
          initComponents();
-         this.setTitle("FRM2");
+         this.setTitle("Usuario Marta");
         this.getRootPane().setDefaultButton(this.btnEnviar);
         Servidor s=new Servidor(6001);
         s.addObserver((Observer) this);
@@ -85,12 +85,14 @@ public class Frm2 extends javax.swing.JFrame implements Observer{
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         // TODO add your handling code here:
-        String mensaje = "2: "+this.txtTextoEnviar.getText()+"\n";
+        String mensaje = "Marta: "+this.txtTextoEnviar.getText()+"\n";
         this.txtTexto.append(mensaje);
         
         Cliente c = new Cliente(5001, mensaje);
         Thread t= new Thread(c);
         t.start();
+        
+        txtTextoEnviar.setText(" ");
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**
